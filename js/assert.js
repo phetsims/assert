@@ -8,11 +8,14 @@
  *
  * TODO: decide on usages and viability, and if so document further
  *
+ * NOTE: for changing build, Uglify.js -d phetDebugFlagBuild='production' or --define=phetDebugFlagBuild=production
+ *
  * @author Jonathan Olson <olsonsjc@gmail.com>
  */
 
 define( function( require ) {
   // this variable should be replaced by our minification engine (Uglify / Closure) for production builds
+  /** @define {string} */
   var phetDebugFlagBuild = 'development';
   
   // pull the flags for our specific build type, or default to no flags if it is not specified
