@@ -17,8 +17,8 @@ define( function( require ) {
   var assert = function( name, excludeByDefault ) {
     var hasName = 'assert.' + name;
     
-    var flagDefined = has && has( hasName ) !== undefined;
-    var skipAssert = flagDefined ? !has( hasName ) : excludeByDefault;
+    var flagDefined = window.has && window.has( hasName ) !== undefined;
+    var skipAssert = flagDefined ? !window.has( hasName ) : excludeByDefault;
     
     if ( skipAssert ) {
       return null;
