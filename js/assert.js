@@ -14,17 +14,13 @@
  */
 
 define( function( require ) {
-  // this variable should be replaced by our minification engine (Uglify / Closure) for production builds
-  /** @define {string} */
-  var phetDebugFlagBuild = 'development';
-  
-  // pull the flags for our specific build type, or default to no flags if it is not specified
-  var flags = window.phetDebugFlags ? window.phetDebugFlags[ phetDebugFlagBuild ] : {};
-  
   var assert = function( name, excludeByDefault ) {
-    var flagDefined = flags && flags[name] !== undefined;
+    var hasName = 'assert.' + name;
     
-    if ( flagDefined ? !flags[name] : excludeByDefault ) {
+    var flagDefined = has && has( hasName ) !== undefined;
+    var skipAssert = flagDefined ? !has( hasName ) : excludeByDefault;
+    
+    if ( skipAssert ) {
       return null;
     } else {
       return function( predicate, message ) {
