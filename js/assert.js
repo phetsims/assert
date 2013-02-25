@@ -8,7 +8,7 @@
  *
  * TODO: decide on usages and viability, and if so document further
  *
- * NOTE: for changing build, Uglify.js -d phetDebugFlagBuild='production' or --define=phetDebugFlagBuild=production
+ * NOTE: for changing build, add has.js tests for 'assert.' + flagName
  *
  * @author Jonathan Olson <olsonsjc@gmail.com>
  */
