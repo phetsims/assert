@@ -1,0 +1,1 @@
+append the stack trace for IE

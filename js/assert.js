@@ -27,6 +27,14 @@ define( function( require ) {
         var result = typeof predicate === 'function' ? predicate() : predicate;
         
         if ( !result ) {
+
+          //Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
+          //TODO: What will this do for IE9?  Probably just print stack = undefined.
+          if ( navigator && navigator.appName === 'Microsoft Internet Explorer' ) {
+            try { throw new Error(); }
+            catch( e ) { message = message + ", stack=\n" + e.stack; }
+          }
+          
           // TODO: custom error?
           throw new Error( 'Assertion failed: ' + message );
         }
