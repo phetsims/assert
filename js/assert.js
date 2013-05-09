@@ -30,7 +30,7 @@ define( function( require ) {
 
           //Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
           //TODO: What will this do for IE9?  Probably just print stack = undefined.
-          if ( navigator && navigator.appName === 'Microsoft Internet Explorer' ) {
+          if ( window.navigator && window.navigator.appName === 'Microsoft Internet Explorer' ) {
             try { throw new Error(); }
             catch( e ) { message = message + ", stack=\n" + e.stack; }
           }
