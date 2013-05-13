@@ -14,6 +14,8 @@
  */
 
 define( function( require ) {
+  'use strict';
+  
   var assert = function( name, excludeByDefault ) {
     var hasName = 'assert.' + name;
     
