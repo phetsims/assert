@@ -16,7 +16,8 @@
 define( function( require ) {
   'use strict';
   
-  var assert = function( name, excludeByDefault ) {
+  // CAUTION: if using the AST modifier for assertions, do not separate this out into its own 'assert' variable
+  return function assert( name, excludeByDefault ) {
     var hasName = 'assert.' + name;
     
     var flagDefined = window.has && window.has( hasName ) !== undefined;
@@ -43,6 +44,4 @@ define( function( require ) {
       };
     }
   };
-  
-  return assert;
 } );
