@@ -13,7 +13,7 @@
  * @author Jonathan Olson <olsonsjc@gmail.com>
  */
 
-define( function( require ) {
+define( function() {
   'use strict';
   
   // CAUTION: if using the AST modifier for assertions, do not separate this out into its own 'assert' variable
