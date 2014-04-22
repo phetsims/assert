@@ -10,7 +10,7 @@
  *
  * NOTE: for changing build, add has.js tests for 'assert.' + flagName
  *
- * @author Jonathan Olson <olsonsjc@gmail.com>
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
  */
 
 define( function() {
