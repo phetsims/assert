@@ -15,20 +15,21 @@
 
 define( function() {
   'use strict';
-  
+
   // CAUTION: if using the AST modifier for assertions, do not separate this out into its own 'assert' variable
   return function assert( name, excludeByDefault ) {
     var hasName = 'assert.' + name;
-    
+
     var flagDefined = window.has && window.has( hasName ) !== undefined;
     var skipAssert = flagDefined ? !window.has( hasName ) : excludeByDefault;
-    
+
     if ( skipAssert ) {
       return null;
-    } else {
+    }
+    else {
       return function( predicate, message ) {
         var result = typeof predicate === 'function' ? predicate() : predicate;
-        
+
         if ( !result ) {
 
           //Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
@@ -37,7 +38,7 @@ define( function() {
             try { throw new Error(); }
             catch( e ) { message = message + ", stack=\n" + e.stack; }
           }
-          
+
           // TODO: custom error?
           throw new Error( 'Assertion failed: ' + message );
         }
