@@ -4,7 +4,7 @@
  * @author Jonathan Olson <jonathan.olson@colorado.edu>
  */
 
-(function(){
+(function() {
   'use strict';
 
   window.assertions = window.assertions || {};
