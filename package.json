@@ -1,9 +1,8 @@
 {
   "name": "assert",
-  "version": "1.0.0-dev.1",
-  "phetLibs": "assert",
-  "preload": "../assert/js/assert.js",
+  "version": "0.0.0",
   "license": "MIT",
+  "phetLibs": "assert",
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/assert.git"
