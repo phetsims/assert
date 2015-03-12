@@ -2,7 +2,6 @@
   "name": "assert",
   "version": "0.0.0",
   "license": "MIT",
-  "phetLibs": "assert",
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/assert.git"
