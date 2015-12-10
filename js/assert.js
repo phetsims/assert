@@ -19,6 +19,7 @@
         catch( e ) { message = message + ', stack=\n' + e.stack; }
       }
 
+      console && console.log && console.log( 'Assertion failed: ' + message );
       throw new Error( 'Assertion failed: ' + message );
     }
   };
