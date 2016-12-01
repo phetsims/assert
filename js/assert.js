@@ -9,9 +9,7 @@
 
   window.assertions = window.assertions || {};
   window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, message ) {
-    var result = typeof predicate === 'function' ? predicate() : predicate;
-
-    if ( !result ) {
+    if ( !predicate ) {
 
       //Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
       if ( window.navigator && window.navigator.appName === 'Microsoft Internet Explorer' ) {
