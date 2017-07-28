@@ -11,14 +11,15 @@
   window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, message ) {
     if ( !predicate ) {
 
-      //Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
+      // Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
       if ( window.navigator && window.navigator.appName === 'Microsoft Internet Explorer' ) {
         try { throw new Error(); }
         catch( e ) { message = message + ', stack=\n' + e.stack; }
       }
 
-      console && console.log && console.log( 'Assertion failed: ' + message );
-      throw new Error( 'Assertion failed: ' + message );
+      var logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
+      console && console.log && console.log(  logMessage );
+      throw new Error( logMessage );
     }
   };
 
