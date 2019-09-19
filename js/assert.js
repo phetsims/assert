@@ -17,7 +17,7 @@
         catch( e ) { message = message + ', stack=\n' + e.stack; }
       }
 
-      var logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
+      const logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
       console && console.log && console.log(  logMessage );
       throw new Error( logMessage );
     }
