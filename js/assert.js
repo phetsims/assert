@@ -19,7 +19,6 @@
 
       const logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
       console && console.log && console.log(  logMessage );
-      debugger;
       throw new Error( logMessage );
     }
   };
