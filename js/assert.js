@@ -4,7 +4,7 @@
  * @author Jonathan Olson <jonathan.olson@colorado.edu>
  */
 
-(function() {
+( function() {
   'use strict';
 
   window.assertions = window.assertions || {};
@@ -18,7 +18,10 @@
       }
 
       const logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
-      console && console.log && console.log(  logMessage );
+      console && console.log && console.log( logMessage );
+      if ( window.phet && phet.chipper && phet.chipper.queryParameters && phet.chipper.queryParameters.debugger ) {
+        debugger; // eslint-disable-line no-debugger
+      }
       throw new Error( logMessage );
     }
   };
@@ -43,4 +46,4 @@
     window.assertSlow = null;
     window.console && window.console.log && window.console.log( 'disabling assertSlow' );
   };
-})();
+} )();
