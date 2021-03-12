@@ -14,10 +14,10 @@
       // Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
       if ( window.navigator && window.navigator.appName === 'Microsoft Internet Explorer' ) {
         try { throw new Error(); }
-        catch( e ) { message = message + ', stack=\n' + e.stack; }
+        catch( e ) { message = `${message}, stack=\n${e.stack}`; }
       }
 
-      const logMessage = message ? 'Assertion failed: ' + message : 'Assertion failed';
+      const logMessage = message ? `Assertion failed: ${message}` : 'Assertion failed';
       console && console.log && console.log( logMessage );
       if ( window.phet && phet.chipper && phet.chipper.queryParameters && phet.chipper.queryParameters.debugger ) {
         debugger; // eslint-disable-line no-debugger
