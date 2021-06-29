@@ -5,7 +5,7 @@
  */
 
 ( function() {
-  'use strict';
+  
 
   window.assertions = window.assertions || {};
   window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, message ) {
