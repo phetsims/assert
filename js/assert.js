@@ -5,24 +5,27 @@
  */
 
 ( function() {
-  
+
 
   window.assertions = window.assertions || {};
-  window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, message ) {
+  window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, ...messages ) {
     if ( !predicate ) {
+
+      // don't treat falsey as a message.
+      messages = messages.filter( message => !!messages );
 
       // Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
       if ( window.navigator && window.navigator.appName === 'Microsoft Internet Explorer' ) {
-        try { throw new Error(); }
-        catch( e ) { message = `${message}, stack=\n${e.stack}`; }
+        messages.push( `stack=\n${new Error().stack}` );
       }
 
-      const logMessage = message ? `Assertion failed: ${message}` : 'Assertion failed';
-      console && console.log && console.log( logMessage );
+      // Add "Assertion Failed" to the front of the message list
+      const assertPrefix = messages.length > 0 ? 'Assertion failed: ' : 'Assertion failed';
+      console && console.log && console.log( assertPrefix, ...messages );
       if ( window.phet && phet.chipper && phet.chipper.queryParameters && phet.chipper.queryParameters.debugger ) {
         debugger; // eslint-disable-line no-debugger
       }
-      throw new Error( logMessage );
+      throw new Error( assertPrefix + messages.join( '\n ' ) );
     }
   };
 
