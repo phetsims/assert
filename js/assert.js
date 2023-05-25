@@ -21,7 +21,7 @@
 
       // Add "Assertion Failed" to the front of the message list
       const assertPrefix = messages.length > 0 ? 'Assertion failed: ' : 'Assertion failed';
-      console && console.log && console.log( assertPrefix, ...messages );
+      console && console.error && console.error( assertPrefix, ...messages );
       if ( window.phet && phet.chipper && phet.chipper.queryParameters && phet.chipper.queryParameters.debugger ) {
         debugger; // eslint-disable-line no-debugger
       }
