@@ -25,6 +25,17 @@
       if ( window.QueryStringMachine && QueryStringMachine.containsKey( 'debugger' ) ) {
         debugger; // eslint-disable-line no-debugger
       }
+
+      // Check if Error.stackTraceLimit exists and is writable
+      const descriptor = Object.getOwnPropertyDescriptor( Error, 'stackTraceLimit' );
+      const stackTraceWritable = descriptor && ( descriptor.writable || ( descriptor.set && typeof descriptor.set === 'function' ) );
+
+      if ( stackTraceWritable ) {
+
+        // @ts-ignore
+        Error.stackTraceLimit = 20;
+      }
+
       throw new Error( assertPrefix + messages.join( '\n ' ) );
     }
   };
