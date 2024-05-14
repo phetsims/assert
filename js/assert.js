@@ -33,7 +33,7 @@
       if ( stackTraceWritable ) {
 
         // @ts-ignore
-        Error.stackTraceLimit = 100;
+        Error.stackTraceLimit = 20;
       }
 
       throw new Error( assertPrefix + messages.join( '\n ' ) );
