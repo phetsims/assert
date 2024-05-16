@@ -36,6 +36,9 @@
         Error.stackTraceLimit = 20;
       }
 
+      // eslint-disable-next-line bad-phet-library-text
+      window.phet?.joist?.sim && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
+
       throw new Error( assertPrefix + messages.join( '\n ' ) );
     }
   };
