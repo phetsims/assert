@@ -22,6 +22,10 @@
       // Add "Assertion Failed" to the front of the message list
       const assertPrefix = messages.length > 0 ? 'Assertion failed: ' : 'Assertion failed';
       console && console.error && console.error( assertPrefix, ...messages );
+
+      // eslint-disable-next-line bad-phet-library-text
+      window.phet?.joist?.sim && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
+
       if ( window.QueryStringMachine && QueryStringMachine.containsKey( 'debugger' ) ) {
         debugger; // eslint-disable-line no-debugger
       }
@@ -35,9 +39,6 @@
         // @ts-ignore
         Error.stackTraceLimit = 20;
       }
-
-      // eslint-disable-next-line bad-phet-library-text
-      window.phet?.joist?.sim && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
 
       throw new Error( assertPrefix + messages.join( '\n ' ) );
     }
