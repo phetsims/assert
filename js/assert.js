@@ -24,7 +24,7 @@
       console && console.error && console.error( assertPrefix, ...messages );
 
       // eslint-disable-next-line bad-phet-library-text
-      window.phet?.joist?.sim && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
+      window.phet?.joist?.sim && console && console.log && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
 
       if ( window.QueryStringMachine && QueryStringMachine.containsKey( 'debugger' ) ) {
         debugger; // eslint-disable-line no-debugger
