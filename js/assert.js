@@ -6,12 +6,15 @@
 
 ( function() {
 
-
   window.assertions = window.assertions || {};
+
+  // {Array.<function():>} - list of callbacks called when an assertion is triggered, before throwing the error.
+  window.assertions.assertionHooks = [];
+
   window.assertions.assertFunction = window.assertions.assertFunction || function( predicate, ...messages ) {
     if ( !predicate ) {
 
-      // don't treat falsey as a message.
+      // don't treat falsy as a message.
       messages = messages.filter( message => !!messages );
 
       // Log the stack trace to IE.  Just creating an Error is not enough, it has to be caught to get a stack.
@@ -23,8 +26,7 @@
       const assertPrefix = messages.length > 0 ? 'Assertion failed: ' : 'Assertion failed';
       console && console.error && console.error( assertPrefix, ...messages );
 
-      // eslint-disable-next-line bad-phet-library-text
-      window.phet?.joist?.sim && console && console.log && console.log( 'Debug info:', JSON.stringify( window.phet.joist.sim.getAssertionDebugInfo(), null, 2 ) );
+      window.assertions.assertionHooks.forEach( hook => hook() );
 
       if ( window.QueryStringMachine && QueryStringMachine.containsKey( 'debugger' ) ) {
         debugger; // eslint-disable-line no-debugger
