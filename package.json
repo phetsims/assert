@@ -8,10 +8,5 @@
   },
   "devDependencies": {
     "grunt": "~1.5.3"
-  },
-  "eslintConfig": {
-    "extends": [
-      "../chipper/eslint/phet-library_eslintrc.js"
-    ]
   }
 }
