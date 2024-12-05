@@ -42,7 +42,13 @@
         Error.stackTraceLimit = 20;
       }
 
-      throw new Error( assertPrefix + messages.join( '\n ' ) );
+      const error = new Error( assertPrefix + messages.join( '\n ' ) );
+      if ( QueryStringMachine.containsKey( 'eacontinue' ) ) {
+        console.log( error.stack );
+      }
+      else {
+        throw error;
+      }
     }
   };
 
