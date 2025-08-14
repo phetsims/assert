@@ -1,6 +1,9 @@
 // Copyright 2013-2024, University of Colorado Boulder
 
 /*
+ * Assertions global, to be used like `assert && assert( condition, 'message' )`.
+ * @deprecated - Use affirm() instead.
+ *
  * @author Jonathan Olson <jonathan.olson@colorado.edu>
  */
 
