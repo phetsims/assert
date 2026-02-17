@@ -4,7 +4,7 @@
  * Assertions global, to be used like `assert && assert( condition, 'message' )`.
  * @deprecated - Use affirm() instead.
  *
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  */
 
 ( function() {
